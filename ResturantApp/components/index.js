@@ -2,3 +2,4 @@ export {default as TabBarCustomButton} from './tabBarCustomButton/TabBarCustomBu
 export {default as CustomTabBar} from './customTabBar/CustomTabBar'
 export {default as Header} from './Header/Header'
 export {default as MainCategories} from './mainCategories/MainCategories'
+export {default as RestaurantList} from './restaurantList/RestaurantList'

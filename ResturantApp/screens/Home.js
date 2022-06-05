@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 import {View,Text,SafeAreaView,StyleSheet,TouchableOpacity,Image,FlatList} from 'react-native'
 import {icons,images,SIZES,COLORS,FONTS} from '../constants'
-import {Header,MainCategories} from '../components'
-import {categoryData,restaurantData,initialCurrentLocation} from '../domiData/domiData'
+import {Header,MainCategories,RestaurantList} from '../components'
+import {categoryData,restaurantData,initialCurrentLocation,affordable,fairPrice,expensive} from '../domiData/domiData'
 const Home = () =>{
   const [categories, setCategories] = useState(categoryData)
   const [selectedCategory, setSelectedCategory] = useState(null)
@@ -15,10 +15,16 @@ const Home = () =>{
     setSelectedCategory(category)
 
   }
+  function getCategoryNameById(id){
+    let category = categories.filter(a=>a.id ===id)
+    if(category.length>0)return category[0].name
+    return ""
+  }
   return(
     <SafeAreaView style={styles.container}>
       <Header location={currentLocation}/>
       <MainCategories categories={categories} onSelectCategory={onSelectCategory} selectedCategory={selectedCategory}/>
+      <RestaurantList restaurants={restaurants} getCategoryNameById={getCategoryNameById}/>
     </SafeAreaView>
   )
 }
