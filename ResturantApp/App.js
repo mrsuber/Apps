@@ -1,55 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native';
-import logo from './assets/logo.png'
+import React from 'react';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from '@react-navigation/native'
+import 'react-native-gesture-handler';
+import { Home,Restaurant, OrderDelivery } from './screens'
+// import Tabs from './navigation/tabs'
 
-      <Image source={{ uri: "https://i.imgur.com/TkIrScD.png" }} style={styles.logo} />
+const Stack = createStackNavigator();
 
-        <Text style={styles.instruction}>
-              To share a photo from your phone with a friend, just press the button below!
-        </Text>
-
-        <TouchableOpacity
-        onPress={() => alert('Hello, world!')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Pick a photo</Text>
-      </TouchableOpacity>
-
-      <StatusBar style="auto" />
-    </View>
-  );
+const App = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator
+                screenOptions={{
+                    headerShown: false
+                }}
+                initialRouteName={'Home'}
+            >
+                <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="Restaurant" component={Restaurant} />
+                <Stack.Screen name="OrderDelivery" component={OrderDelivery} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo:{
-    width: 305,
-    height: 159,
-    marginBottom: 20,
-
-  },
-  instruction:{
-    color:"#888",
-     fontSize:18,
-     marginHorizontal: 15,
-     marginBottom: 10,
-   },
-   button:{
-     backgroundColor: 'blue',
-     padding: 20,
-     borderRadius: 5
-   },
-   buttonText:{
-     fontSize: 20,
-     color: '#fff' 
-
-   }
-});
+export default App;
