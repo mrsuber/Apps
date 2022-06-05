@@ -3,7 +3,8 @@ import {View,Text,SafeAreaView,StyleSheet,TouchableOpacity,Image,FlatList} from 
 import {icons,images,SIZES,COLORS,FONTS} from '../constants'
 import {Header,MainCategories,RestaurantList} from '../components'
 import {categoryData,restaurantData,initialCurrentLocation,affordable,fairPrice,expensive} from '../domiData/domiData'
-const Home = () =>{
+
+const Home = ({navigation}) =>{
   const [categories, setCategories] = useState(categoryData)
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [restaurants, setRestaurants] = useState(restaurantData)
@@ -22,9 +23,9 @@ const Home = () =>{
   }
   return(
     <SafeAreaView style={styles.container}>
-      <Header location={currentLocation}/>
+      <Header location={currentLocation} icon1={icons.nearby} icon2={icons.basket} name={currentLocation.streetName}/>
       <MainCategories categories={categories} onSelectCategory={onSelectCategory} selectedCategory={selectedCategory}/>
-      <RestaurantList restaurants={restaurants} getCategoryNameById={getCategoryNameById}/>
+      <RestaurantList restaurants={restaurants} getCategoryNameById={getCategoryNameById} navigation={navigation} currentLocation={currentLocation}/>
     </SafeAreaView>
   )
 }

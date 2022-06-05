@@ -2,12 +2,12 @@ import {View,Text,SafeAreaView,StyleSheet,TouchableOpacity,Image,FlatList} from 
 import {icons,images,SIZES,COLORS,FONTS} from '../../constants'
 
 
-const RestaurantList = ({restaurants,getCategoryNameById})=>{
+const RestaurantList = ({restaurants,getCategoryNameById,navigation,currentLocation})=>{
   const renderItem = ({item})=>{
     return(
       <TouchableOpacity
       style={{marginBottom: SIZES.padding*2}}
-
+      onPress={() =>navigation.navigate("Restaurant",{item, currentLocation})}
       >
       {/*image*/}
       <View>

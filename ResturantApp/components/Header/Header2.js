@@ -2,11 +2,13 @@ import {View,Text,SafeAreaView,StyleSheet,TouchableOpacity,Image,FlatList} from 
 import {icons,images,SIZES,COLORS,FONTS} from '../../constants'
 
 
-const Header = ({location,icon1,icon2,name}) =>{
+const Header2 = ({location,icon1,icon2,name,navigation}) =>{
   return(
-    <View style={{flexDirection: 'row', height: 50}}>
+    <View style={{flexDirection: 'row', height: 50,marginTop: 50}}>
       <TouchableOpacity
-      style={{width: 50,paddingLeft: SIZES.padding*2,justifyContent: 'center'}}>
+      style={{width: 50,paddingLeft: SIZES.padding*2,justifyContent: 'center'}}
+      onPress={()=>navigation.goBack()}
+      >
       <Image
       source={icon1}
       resizeMode="contain"
@@ -35,6 +37,7 @@ const Header = ({location,icon1,icon2,name}) =>{
           paddingRight: SIZES.padding*2,
           justifyContent: 'center'
         }}
+
       >
         <Image
         source={icon2}
@@ -49,4 +52,4 @@ const Header = ({location,icon1,icon2,name}) =>{
   )
 }
 
-export default Header
+export default Header2

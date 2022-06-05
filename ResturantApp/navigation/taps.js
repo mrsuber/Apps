@@ -8,7 +8,7 @@ import {TabBarCustomButton,CustomTabBar} from '../components'
 const Tab = createBottomTabNavigator()
 
 let tabScreenData = [
-  {name:"Home",icon:icons.cutlery,},
+  {name:"Home",icon:icons.cutlery},
   {name:"Search",icon:icons.search,},
   {name:"Like",icon:icons.like,},
   {name:"User",icon:icons.user,},
