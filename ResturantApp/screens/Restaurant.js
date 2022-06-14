@@ -1,8 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import {View,Text,SafeAreaView,StyleSheet,TouchableOpacity,Image,FlatList,Animated} from 'react-native'
-import {Header2} from '../components'
+import {Header2,FoodInfo} from '../components'
 import {icons,images,SIZES,COLORS,FONTS} from '../constants'
 import {isIphoneX} from 'react-native-iphone-x-helper'
+import {categoryData,restaurantData,initialCurrentLocation,affordable,fairPrice,expensive} from '../domiData/domiData'
 
 
 const Restaurant = ({route,navigation}) =>{
@@ -17,7 +18,8 @@ const Restaurant = ({route,navigation}) =>{
   return(
 
     <SafeAreaView style={styles.container}>
-      <Header2 icon1={icons.back} icon2={icons.basket} name={'Resturant'} navigation={navigation}/>
+      <Header2 icon1={icons.back} icon2={icons.list} name={'Resturant'} navigation={navigation}/>
+      <FoodInfo />
     </SafeAreaView>
 
   )
