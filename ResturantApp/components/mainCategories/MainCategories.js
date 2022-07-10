@@ -8,7 +8,7 @@ const MainCategories = ({categories,onSelectCategory,selectedCategory})=>{
       return(
         <TouchableOpacity
           style={{
-            padding:SIZES.padding,
+            
             paddingBottom: SIZES.padding*2,
             backgroundColor: (selectedCategory?.id === item.id)? COLORS.primary :COLORS.white ,
             borderRadius: SIZES.radius ,
@@ -56,9 +56,9 @@ const MainCategories = ({categories,onSelectCategory,selectedCategory})=>{
       )
     }
   return(
-    <View style={{padding: SIZES.padding*2}}>
-        <Text style={{...FONTS.h1}}>Main</Text>
-        <Text style={{...FONTS.h1}}>categories</Text>
+    <View>
+        <Text style={{...FONTS.h1,padding: SIZES.padding*2}}>Main</Text>
+        <Text style={{...FONTS.h1,padding: SIZES.padding*2}}>categories</Text>
         <FlatList
           data={categories}
           horizontal

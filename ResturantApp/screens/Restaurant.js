@@ -19,7 +19,7 @@ const Restaurant = ({route,navigation}) =>{
 
     <SafeAreaView style={styles.container}>
       <Header2 icon1={icons.back} icon2={icons.list} name={'Resturant'} navigation={navigation}/>
-      <FoodInfo />
+      <FoodInfo restaurant={restaurant}/>
     </SafeAreaView>
 
   )
